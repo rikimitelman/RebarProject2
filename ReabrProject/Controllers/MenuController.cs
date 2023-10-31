@@ -23,7 +23,7 @@ namespace ReabrProject.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Shake> GetById(Guid id)
+        public ActionResult<Shake> GetById(string id)
         {
             var shake = _ShakeRepository.GetById(id);
             if (shake == null)
@@ -41,7 +41,7 @@ namespace ReabrProject.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update(Guid id, [FromBody]Shake shake)
+        public ActionResult Update(string id, [FromBody]Shake shake)
         {
             var existingShake= _ShakeRepository.GetById(id);
             if(existingShake==null)
@@ -52,7 +52,7 @@ namespace ReabrProject.Controllers
             return NoContent();
         }
         [HttpDelete("{id}")]
-        public ActionResult Remove(Guid id)
+        public ActionResult Remove(string id)
         { 
             var shake= _ShakeRepository.GetById(id); 
             if(shake==null)

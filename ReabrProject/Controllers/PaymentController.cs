@@ -24,7 +24,7 @@ namespace ReabrProject.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Order> GetById(Guid id)
+        public ActionResult<Order> GetById(string id)
         {
             var order = _paymentRepository.GetById(id);
             if (order == null)
@@ -42,7 +42,7 @@ namespace ReabrProject.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult Update(Guid id, [FromBody] Order order)
+        public ActionResult Update(string id, [FromBody] Order order)
         {
             var existingorder = _paymentRepository.GetById(id);
             if (existingorder == null)
@@ -53,7 +53,7 @@ namespace ReabrProject.Controllers
             return NoContent();
         }
         [HttpDelete("{id}")]
-        public ActionResult Remove(Guid id)
+        public ActionResult Remove(string id)
         {
             var order = _paymentRepository.GetById(id);
             if (order == null)

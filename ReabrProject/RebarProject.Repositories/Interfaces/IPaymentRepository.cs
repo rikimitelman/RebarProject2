@@ -5,9 +5,9 @@ namespace ReabrProject.RebarProject.Repositories.Interfaces
     public interface IPaymentRepository
     {
         List<Order> GetAll();
-        Order GetById(Guid id);
+        Order GetById(string id);
         Order Create(Order order);
-        void Update(Guid id, Order order);
-        void Remove(Guid id);
+        void Update(string id, Order order);
+        void Remove(string id);
     }
 }

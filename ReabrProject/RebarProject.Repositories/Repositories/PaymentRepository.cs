@@ -25,17 +25,17 @@ namespace ReabrProject.RebarProject.Repositories.Repositories
             return _order.Find(order => true).ToList();
         }
 
-        public Order GetById(Guid id)
+        public Order GetById(string id)
         {
             return _order.Find(order => order.OrderId == id).FirstOrDefault();
         }
 
-        public void Remove(Guid id)
+        public void Remove(string id)
         {
             _order.DeleteOne(order => order.OrderId == id);
         }
 
-        public void Update(Guid id, Order order)
+        public void Update(string id, Order order)
         {
             _order.ReplaceOne(order => order.OrderId == id, order);
         }

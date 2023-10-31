@@ -24,17 +24,17 @@ namespace ReabrProject.RebarProject.Repositories.Repositories
             return _shake.Find(shake => true).ToList();
         }
 
-        public Shake GetById(Guid id)
+        public Shake GetById(string id)
         {
             return _shake.Find(shake => shake.ShakeId == id).FirstOrDefault();
         }
 
-        public void Remove(Guid id)
+        public void Remove(string id)
         {
             _shake.DeleteOne(shake=>shake.ShakeId==id);
         }
 
-        public void Update(Guid id, Shake shake)
+        public void Update(string id, Shake shake)
         {
             _shake.ReplaceOne(shake => shake.ShakeId == id, shake);
         }
