@@ -29,7 +29,7 @@ namespace ReabrProject.RebarProject.Repositories.Entities
 
         public Order()
         {
-            OrderId= Guid.NewGuid().ToString();
+            OrderId = Guid.NewGuid().ToString();
         }
         public void addShake (int price)
         {

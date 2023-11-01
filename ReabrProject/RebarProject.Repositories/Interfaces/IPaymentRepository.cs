@@ -9,5 +9,6 @@ namespace ReabrProject.RebarProject.Repositories.Interfaces
         Order Create(Order order);
         void Update(string id, Order order);
         void Remove(string id);
+        void closeCheckout();
     }
 }

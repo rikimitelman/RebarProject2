@@ -33,8 +33,12 @@ namespace ReabrProject.RebarProject.Repositories.Repositories
                     
             //    }
             //}
+
+            order.FinishOrder = DateTime.Now;
+            TimeSpan timeDifference = order.FinishOrder.Subtract(order.OrderDate);
             //add the order
             _order.InsertOne(order);
+            Console.WriteLine($"Order number: {order.OrderId}  has been successfully completed, The total price is: {order.SumShakes}");
             return order;
         }
 
@@ -57,5 +61,27 @@ namespace ReabrProject.RebarProject.Repositories.Repositories
         {
             _order.ReplaceOne(order => order.OrderId == id, order);
         }
+        public void closeCheckout()
+        {
+            Payment payment = new Payment();
+            Console.WriteLine("enter password");
+            string paasword = Console.ReadLine();
+            if(paasword.Equals(1234))
+            {
+                //number of orders
+                int numberOfOrders = payment.Orders.Where(date => date.OrderDate == DateTime.Today).Count() ;
+                Console.WriteLine();
+
+                //sum of prices
+                int totalPrice = payment.Orders.Where(date => date.OrderDate == DateTime.Today).Sum(x => x.SumShakes);
+            }
+            else
+            {
+                Console.WriteLine("password not valid");
+                return;
+            }
+        }
+
+
     }
 }
