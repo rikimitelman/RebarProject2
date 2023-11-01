@@ -1,4 +1,7 @@
-﻿namespace ReabrProject.RebarProject.Repositories.Entities
+﻿
+using ReabrProject.RebarProject.Repositories.Interfaces;
+
+namespace ReabrProject.RebarProject.Repositories.Entities
 {
     public class RebarStoreDatabaseSettings : IRebarStoreDatabaseSettings
     {

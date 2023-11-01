@@ -24,7 +24,6 @@ namespace ReabrProject.RebarProject.Repositories.Repositories
         {
             var shakes = _shake.Find(_ => true).ToList();
             var ids = shakes.Select(shake => shake.ShakeId.ToString()).ToList();
-            Console.WriteLine(shakes[1].ShakeId.GetType());
             return shakes;
         }
 

@@ -18,7 +18,6 @@ namespace ReabrProject.Controllers
         [HttpGet]
         public ActionResult<List<Shake>> GetAll()
         {
-            Console.WriteLine("get");
             return _ShakeRepository.GetAll();
         }
 

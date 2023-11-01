@@ -16,6 +16,9 @@ namespace ReabrProject.RebarProject.Repositories.Entities
         [BsonElement("SumOrders")]
         public int SumOrders { get; set; }
 
+        [BsonElement("NumOrders")]
+        public int NumOrders { get; set; }
+
         public Payment()
         {
             PaymentId= Guid.NewGuid().ToString();
