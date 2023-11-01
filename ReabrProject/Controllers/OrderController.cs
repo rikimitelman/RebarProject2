@@ -18,7 +18,6 @@ namespace ReabrProject.Controllers
         [HttpGet]
         public ActionResult<List<Shake>> GetAll()
         {
-            Console.WriteLine("get");
             return _orderRepository.GetAll();
         }
 
@@ -36,6 +35,10 @@ namespace ReabrProject.Controllers
         [HttpPost]
         public ActionResult<Shake> Create([FromBody] Shake shake)
         {
+            if(string.IsNullOrEmpty(shake.Name)||string.IsNullOrEmpty(shake.Description))
+            {
+                return BadRequest("Missing required detailes for placing an order");
+            }
             _orderRepository.Create(shake);
             return CreatedAtAction(nameof(GetById), new { id = shake.ShakeId }, shake);
         }

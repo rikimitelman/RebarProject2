@@ -7,6 +7,7 @@ namespace ReabrProject.RebarProject.Repositories.Entities
     [BsonIgnoreExtraElements]
     public class Payment
     {
+        [BsonElement("PaymentId")]
         public string PaymentId { get; set; }
 
         [BsonElement("Orders")]

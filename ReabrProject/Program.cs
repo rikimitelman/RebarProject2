@@ -16,8 +16,8 @@ builder.Services.AddSingleton<IRebarStoreDatabaseSettings>(sp =>
 builder.Services.AddSingleton<IMongoClient>(s =>
     new MongoClient(builder.Configuration.GetValue<string>(
         "RebarStoreDatabaseSettings:ConnectionString")));
-//builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
-//builder.Services.AddScoped<IMenuRepository, MenuRepository>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IMenuRepository, MenuRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 builder.Services.AddControllers();

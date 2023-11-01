@@ -1,4 +1,6 @@
-﻿namespace ReabrProject.RebarProject.Repositories.Entities
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace ReabrProject.RebarProject.Repositories.Entities
 {
     public class Discount
     {

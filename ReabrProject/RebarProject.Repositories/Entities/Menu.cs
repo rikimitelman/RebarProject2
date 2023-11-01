@@ -9,6 +9,7 @@ namespace ReabrProject.RebarProject.Repositories.Entities
         [BsonElement("Shakes")]
         List<Shake> Shakes;
 
+        [BsonElement("MenuId")]
         public string MenuId { get; set; }
 
         public Menu()

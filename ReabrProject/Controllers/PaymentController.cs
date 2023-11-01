@@ -19,7 +19,6 @@ namespace ReabrProject.Controllers
         [HttpGet]
         public ActionResult<List<Order>> GetAll()
         {
-            Console.WriteLine("get");
             return _paymentRepository.GetAll();
         }
 
@@ -37,7 +36,15 @@ namespace ReabrProject.Controllers
         [HttpPost]
         public ActionResult<Order> Create([FromBody] Order order)
         {
-            _paymentRepository.Create(order);
+            if(string.IsNullOrEmpty(order.CustomerName) || order.Shakes == null || order.Shakes.Count()==0)
+            {
+                return BadRequest("Missing required detailes for placing an order");
+            }
+            if(order.Shakes.Count() > 10)
+            {
+                return BadRequest("Maximum number of shakes for order is 10");
+            }
+             _paymentRepository.Create(order);
             return CreatedAtAction(nameof(GetById), new { id = order.OrderId }, order);
         }
 

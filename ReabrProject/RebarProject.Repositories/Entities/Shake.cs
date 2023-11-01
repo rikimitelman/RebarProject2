@@ -3,12 +3,12 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace ReabrProject.RebarProject.Repositories.Entities
 {
-    public enum ShakePrices
+    /*public enum ShakePrices
     {
-        S=22,
-        M=25,
-        L=27
-    }
+        Small=22,
+        Medium=25,
+        Large=27
+    }*/
     [BsonIgnoreExtraElements]
     public class Shake
     {
@@ -21,6 +21,7 @@ namespace ReabrProject.RebarProject.Repositories.Entities
         [BsonElement("Prices")]
         public ShakePrices Prices { get; set; }
 
+        [BsonElement("ShakeId")]
         public string ShakeId { get; set; }
 
         public Shake()
@@ -29,6 +30,22 @@ namespace ReabrProject.RebarProject.Repositories.Entities
         }
     }
 
-    
+    [BsonIgnoreExtraElements]
+    public class ShakePrices
+    {
+        [BsonElement("Small")]
+        public int Small { get; set; }
+        [BsonElement("Medium")]
+        public int Medium { get; set; }
+        [BsonElement("Large")]
+        public int Large { get; set; }
 
-}
+        public ShakePrices()
+        {
+            Small = 22;
+            Medium = 26;
+            Large = 30;
+        }
+    }
+
+    }

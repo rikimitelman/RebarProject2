@@ -12,6 +12,7 @@ namespace ReabrProject.RebarProject.Repositories.Entities
         [BsonElement("SumShakes")]
         public int SumShakes { get; set; }
 
+        [BsonElement("OrderId")]
         public string OrderId { get; set; }
 
         [BsonElement("CustomerName")]
@@ -20,12 +21,19 @@ namespace ReabrProject.RebarProject.Repositories.Entities
         [BsonElement("OrderDate")]
         public DateTime OrderDate { get; set; }
 
+        [BsonElement("FinishOrder")]
+        public DateTime FinishOrder { get; set; }
+
         [BsonElement("Discount")]
         public List<Discount> Discounts { get; set; }
 
         public Order()
         {
             OrderId= Guid.NewGuid().ToString();
+        }
+        public void addShake (int price)
+        {
+            this.SumShakes += price;
         }
 
     }

@@ -7,16 +7,16 @@ namespace ReabrProject.RebarProject.Repositories.Repositories
     public class OrderRepository : IOrderRepository
     {
         private readonly IMongoCollection<Shake> _shake ;
+
         public OrderRepository(IRebarStoreDatabaseSettings settings,IMongoClient mongoClient)
         {
             var database =mongoClient.GetDatabase(settings.DatabaseName);
             _shake = database.GetCollection<Shake>(settings.CustomerOrderCollectionName);
         }
         public Shake Create(Shake shake)
-        {          
+        {
             _shake.InsertOne(shake);
             return shake;
-
         }
 
         public List<Shake> GetAll()
